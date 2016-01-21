@@ -6,11 +6,12 @@ var UserProfiles = React.createClass({
         bio: React.PropTypes.object.isRequired
     },
     render: function() {
+        console.log(this.props.bio);
         return (
             <div>
                 <p>User Profile!</p>
                 <p>Username: {this.props.username}</p>
-                <p>Bio: {this.props.bio.name}</p>
+                <p>Bio: </p>
             </div>
         )
     }
