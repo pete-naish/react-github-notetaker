@@ -24268,10 +24268,15 @@
 	        }
 	    }, {
 	        key: 'handleSubmit',
-	        value: function handleSubmit() {
+	        value: function handleSubmit(e) {
 	            var username = this.usernameRef.value;
-	            this.usernameRef.value = '';
-	            this.props.history.pushState(null, '/profile/' + username);
+
+	            e.preventDefault();
+
+	            if (username) {
+	                this.usernameRef.value = '';
+	                this.props.history.pushState(null, '/profile/' + username);
+	            }
 	        }
 	    }, {
 	        key: 'render',
@@ -24283,8 +24288,8 @@
 	                { className: 'col-sm-12' },
 	                _react2.default.createElement(
 	                    'form',
-	                    { onSubmit: function onSubmit() {
-	                            return _this2.handleSubmit();
+	                    { onSubmit: function onSubmit(e) {
+	                            return _this2.handleSubmit(e);
 	                        } },
 	                    _react2.default.createElement(
 	                        'div',

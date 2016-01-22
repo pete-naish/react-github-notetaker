@@ -5,15 +5,20 @@ class SearchGithub extends React.Component {
     getRef(ref) {
         this.usernameRef = ref;
     }
-    handleSubmit() {
+    handleSubmit(e) {
         const username = this.usernameRef.value;
-        this.usernameRef.value = '';
-        this.props.history.pushState(null, `/profile/${username}`);
+
+        e.preventDefault();
+
+        if (username) {
+            this.usernameRef.value = '';
+            this.props.history.pushState(null, `/profile/${username}`);
+        }
     }
     render() {
         return (
             <div className="col-sm-12">
-                <form onSubmit={() => this.handleSubmit()}>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group col-sm-7">
                         <input type="text" className="form-control" ref={(ref) => this.getRef(ref)} />
                     </div>
